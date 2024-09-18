@@ -1,6 +1,8 @@
 # Poodg Game
 This is a Rust based game using `embedded-graphics` in combination with `embedded-graphics-simulator` and `embedded-graphics-simulator-web` to provide a binary for Linux X86, WASM and an embedded RP2040 device.
 
+WASM build is available to play [on Itch.io](https://the-rusto.itch.io/poodg)
+
 # Native 
 Depends on SDL2. Doesn't work on WSL, doesn't compile on my Windows.
 
