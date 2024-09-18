@@ -1,0 +1,3 @@
+[build]
+public_url = "."
+command = "cargo build --target wasm64-unknown-unknown --no-default-features"
