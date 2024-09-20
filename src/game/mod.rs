@@ -22,7 +22,7 @@ use crate::{
 use libm::floorf;
 
 #[cfg(target_arch = "wasm32")]
-const TICK_RATE: u64 = 9_000;
+const TICK_RATE: u64 = 1000;
 #[cfg(not(target_arch = "wasm32"))]
 const TICK_RATE: u64 = 16_000;
 

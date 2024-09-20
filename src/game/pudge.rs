@@ -53,6 +53,9 @@ impl Default for Pudge {
     fn default() -> Self {
         return Pudge {
             location: GamePoint::new(64, 64 - 13),
+            #[cfg(target_arch = "wasm32")]
+            speed: 4.0,
+            #[cfg(not(target_arch = "wasm32"))]
             speed: 2.75,
             hook_speed: 2.0,
             hook_boost: 0.1,

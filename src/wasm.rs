@@ -94,7 +94,7 @@ static mut MOUSE: Option<Arc<Mutex<WebMouse>>> = None;
 static START_TIME: Lazy<Arc<Mutex<OnceCell<SystemTime>>>> =
     Lazy::new(|| -> _ { return Arc::new(Mutex::new(OnceCell::new())) });
 
-const LOGIC_TIMEOUT: i32 = 100;
+const LOGIC_TIMEOUT: i32 = 20;
 pub fn wasm_main() {
     #[cfg(debug_assertions)]
     console_error_panic_hook::set_once();
@@ -202,7 +202,7 @@ pub fn wasm_main() {
         game.control(control);
 
         // Schedule ourself for another requestAnimationFrame callback.
-        request_animation_frame(graphics_anchor.borrow().as_ref().unwrap());
+        set_timeout(graphics_anchor.borrow().as_ref().unwrap(), LOGIC_TIMEOUT);
     }) as Box<dyn FnMut()>));
 
     set_timeout(graphics_ref.borrow().as_ref().unwrap(), LOGIC_TIMEOUT);
