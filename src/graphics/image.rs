@@ -22,7 +22,11 @@ where
         DisplayEnum::WebView(ref mut disp) => {
             text.draw(disp).unwrap();
         }
-        _ => todo!(),
+        #[cfg(not(target_os = "none"))]
+        DisplayEnum::Simulator(ref mut disp) => {
+            text.draw(disp).unwrap();
+        }
+        DisplayEnum::Mock(_) => {}
     }
 }
 
@@ -43,9 +47,11 @@ pub fn draw_hp(display: &mut DisplayEnum, hp: u8) {
         DisplayEnum::WebView(ref mut disp) => {
             hp_text.draw(disp).unwrap();
         }
-        _ => {
-            todo!()
+        #[cfg(not(target_os = "none"))]
+        DisplayEnum::Simulator(ref mut disp) => {
+            hp_text.draw(disp).unwrap();
         }
+        DisplayEnum::Mock(_) => {}
     }
 }
 

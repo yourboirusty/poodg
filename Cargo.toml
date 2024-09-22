@@ -23,7 +23,6 @@ overflow-checks = false
 [dependencies]
 tinybmp = "0.5.0"
 embedded-graphics = "0.8.1"
-embedded-graphics-simulator = {version = "0.5.0", optional = true}
 fugit = "0.3.7"
 once_cell = { version = "1.19.0", features = ["alloc", "race"], optional = true }
 rand = { version = "0.8.5", features = ["alloc",   "small_rng"], default-features = false }
@@ -79,6 +78,5 @@ features = [
 ]
 
 [target.'cfg(target_arch = "x86_64")'.dependencies]
-
-[features]
-native = ["embedded-graphics-simulator",  "once_cell"]
+embedded-graphics-simulator = {version = "0.5.0"}
+once_cell = { version = "1.19.0", features = ["alloc", "race"] }
